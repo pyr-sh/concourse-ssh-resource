@@ -13,8 +13,8 @@ import (
 	"github.com/reconquest/hierr-go"
 	"github.com/spf13/afero"
 
-	"github.com/henry40408/concourse-ssh-resource/internal/models"
-	"github.com/henry40408/concourse-ssh-resource/internal/placeholder"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/models"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/placeholder"
 )
 
 const defaultTimeout = 60 * 10 // = 10 minutes
@@ -50,7 +50,15 @@ func PerformSSHCommand(fs afero.Fs, source *models.Source, params *models.Params
 	}
 
 	command := fmt.Sprintf("%s %s", interpreter, remoteScriptFileName)
-	stdoutChan, stderrChan, doneChan, errChan, err := config.Stream(command, defaultTimeout)
+	timeout := defaultTimeout
+	if source.Timeout != "" {
+		duration, err := time.ParseDuration(source.Timeout)
+		if err != nil {
+			return hierr.Errorf(err, "failed to parse the timeout duration")
+		}
+		timeout = int(duration) / int(time.Second)
+	}
+	stdoutChan, stderrChan, doneChan, errChan, err := config.Stream(command, timeout)
 	if err != nil {
 		return hierr.Errorf(err, "unable to run script on remote machine")
 	}

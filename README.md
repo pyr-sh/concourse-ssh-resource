@@ -1,11 +1,11 @@
 # Concourse SSH Resource
 
-[![CircleCI](https://circleci.com/gh/henry40408/concourse-ssh-resource.svg?style=shield)](https://circleci.com/gh/henry40408/concourse-ssh-resource)
-[![codecov](https://codecov.io/gh/henry40408/concourse-ssh-resource/branch/master/graph/badge.svg)](https://codecov.io/gh/henry40408/concourse-ssh-resource)
-[![goreportcard](https://goreportcard.com/badge/github.com/henry40408/concourse-ssh-resource)](https://goreportcard.com/report/github.com/henry40408/concourse-ssh-resource)
-[![Docker Repository on Quay](https://quay.io/repository/henry40408/concourse-ssh-resource/status "Docker Repository on Quay")](https://quay.io/repository/henry40408/concourse-ssh-resource)
-[![GitHub release](https://img.shields.io/github/release/henry40408/concourse-ssh-resource.svg)](https://github.com/henry40408/concourse-ssh-resource)
-[![license](https://img.shields.io/github/license/henry40408/concourse-ssh-resource.svg)](https://github.com/henry40408/concourse-ssh-resource)
+[![CircleCI](https://circleci.com/gh/pyr-sh/concourse-ssh-resource.svg?style=shield)](https://circleci.com/gh/pyr-sh/concourse-ssh-resource)
+[![codecov](https://codecov.io/gh/pyr-sh/concourse-ssh-resource/branch/master/graph/badge.svg)](https://codecov.io/gh/pyr-sh/concourse-ssh-resource)
+[![goreportcard](https://goreportcard.com/badge/github.com/pyr-sh/concourse-ssh-resource)](https://goreportcard.com/report/github.com/pyr-sh/concourse-ssh-resource)
+[![Docker Repository on Quay](https://quay.io/repository/pyr-sh/concourse-ssh-resource/status "Docker Repository on Quay")](https://quay.io/repository/pyr-sh/concourse-ssh-resource)
+[![GitHub release](https://img.shields.io/github/release/pyr-sh/concourse-ssh-resource.svg)](https://github.com/pyr-sh/concourse-ssh-resource)
+[![license](https://img.shields.io/github/license/pyr-sh/concourse-ssh-resource.svg)](https://github.com/pyr-sh/concourse-ssh-resource)
 ![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)
 
 > SSH resource for Concourse CI
@@ -59,7 +59,7 @@ resource_types:
 - name: ssh
   type: docker-image
   source:
-    repository: quay.io/henry40408/concourse-ssh-resource
+    repository: quay.io/pyr-sh/concourse-ssh-resource
 
 resources:
 - name: staging-server
@@ -94,9 +94,9 @@ jobs:
 
 ## How to Test
 
-We need to start a simple SSH server first. I assume there is no SSH server currently running on your laptop or workstation. For more information about the SSH server, please checkout [henry40408/alpine-ssh](https://github.com/henry40408/alpine-ssh).
+We need to start a simple SSH server first. I assume there is no SSH server currently running on your laptop or workstation. For more information about the SSH server, please checkout [pyr-sh/alpine-ssh](https://github.com/pyr-sh/alpine-ssh).
 
-1. `docker run -d -p 22:22 quay.io/henry40408/alpine-ssh`
+1. `docker run -d -p 22:22 quay.io/pyr-sh/alpine-ssh`
 2. `make test`
 
 ## Contributors

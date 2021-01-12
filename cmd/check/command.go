@@ -6,7 +6,7 @@ import (
 
 	"github.com/reconquest/hierr-go"
 
-	"github.com/henry40408/concourse-ssh-resource/internal/models"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/models"
 )
 
 type checkRequest struct {

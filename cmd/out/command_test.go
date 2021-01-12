@@ -12,7 +12,7 @@ import (
 	"github.com/icrowley/fake"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/henry40408/concourse-ssh-resource/internal/models"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/models"
 )
 
 func TestOutCommand(t *testing.T) {

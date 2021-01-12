@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/henry40408/concourse-ssh-resource/internal/models"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/models"
 	"github.com/spf13/afero"
 )
 

@@ -9,8 +9,8 @@ import (
 	"github.com/reconquest/hierr-go"
 	"github.com/spf13/afero"
 
-	"github.com/henry40408/concourse-ssh-resource/internal/models"
-	"github.com/henry40408/concourse-ssh-resource/internal/ssh"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/models"
+	"github.com/pyr-sh/concourse-ssh-resource/internal/ssh"
 )
 
 type outRequest struct {

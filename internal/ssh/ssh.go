@@ -17,7 +17,7 @@ import (
 	"github.com/pyr-sh/concourse-ssh-resource/internal/placeholder"
 )
 
-const defaultTimeout = 60 * 10 // = 10 minutes
+const defaultTimeout = time.Minute * 10 // = 10 minutes
 
 // PerformSSHCommand runs command on remote machine via SSH.
 // It puts script into file on remote machine, and runs it with interpreter.
@@ -52,11 +52,10 @@ func PerformSSHCommand(fs afero.Fs, source *models.Source, params *models.Params
 	command := fmt.Sprintf("%s %s", interpreter, remoteScriptFileName)
 	timeout := defaultTimeout
 	if source.Timeout != "" {
-		duration, err := time.ParseDuration(source.Timeout)
+		timeout, err = time.ParseDuration(source.Timeout)
 		if err != nil {
 			return hierr.Errorf(err, "failed to parse the timeout duration")
 		}
-		timeout = int(duration) / int(time.Second)
 	}
 	stdoutChan, stderrChan, doneChan, errChan, err := config.Stream(command, timeout)
 	if err != nil {
